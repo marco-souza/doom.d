@@ -1,0 +1,15 @@
+* Personal Doom Emacs setup
+This is my custom doom emacs setup. Feel free to leave comments and make it yours! 😎
+
+** Dependencies
+Your system will need to have install:
+- git
+- bash
+- curl
+- emacs
+
+** Install
+Just run:
+#+begin_sh Install doom with custom config
+source <(curl -s https://raw.githubusercontent.com/marco-souza/doom.d/main/setup.sh)
+#+end_sh
