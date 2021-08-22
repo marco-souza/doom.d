@@ -59,3 +59,8 @@
 ;; Golang
 (add-hook 'before-save-hook 'gofmt-before-save)
 
+;; Install Wakatime
+(use-package wakatime-mode)
+
+;; Initialization
+(global-wakatime-mode)
