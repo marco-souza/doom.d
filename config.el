@@ -55,11 +55,14 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+;; Setup zsh
+(setq shell-file-name "zsh")
+(setenv "SHELL" shell-file-name)
 
 ;; Golang
 (add-hook 'before-save-hook 'gofmt-before-save)
 
-;; Install Wakatime
+;; Setup Packages
 (use-package wakatime-mode)
 
 ;; Initialization
