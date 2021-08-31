@@ -55,6 +55,23 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 
+
+;; Setup todo keywords
+(setq org-todo-keywords
+    (quote ((sequence "TODO(t)" "WIP(n)" "|" "DONE(d)")
+            (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
+(setq org-todo-keyword-faces
+    (quote (("TODO" :foreground "red" :weight bold)
+            ("WIP" :foreground "blue" :weight bold)
+            ("DONE" :foreground "forest green" :weight bold)
+            ("WAITING" :foreground "orange" :weight bold)
+            ("HOLD" :foreground "magenta" :weight bold)
+            ("CANCELLED" :foreground "forest green" :weight bold)
+            ("MEETING" :foreground "forest green" :weight bold)
+            ("PHONE" :foreground "forest green" :weight bold))))
+(setq-default org-export-with-todo-keywords nil)
+(setq-default org-enforce-todo-dependencies t)
+
 ;; Setup zsh
 (setq shell-file-name "zsh")
 (setenv "SHELL" shell-file-name)
