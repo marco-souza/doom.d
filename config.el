@@ -27,10 +27,6 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
 
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/notes/")
-
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
@@ -56,21 +52,18 @@
 ;; they are implemented.
 
 
-;; Setup todo keywords
-(setq org-todo-keywords
-    (quote ((sequence "TODO(t)" "WIP(n)" "|" "DONE(d)")
-            (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)"))))
-(setq org-todo-keyword-faces
-    (quote (("TODO" :foreground "forest green" :weight bold)
-            ("WIP" :foreground "yellow" :weight bold)
-            ("DONE" :foreground "blue" :weight bold)
-            ("WAITING" :foreground "orange" :weight bold)
-            ("HOLD" :foreground "magenta" :weight bold)
-            ("CANCELLED" :foreground "red" :weight bold)
-            ("MEETING" :foreground "blue" :weight bold)
-            ("PHONE" :foreground "blue" :weight bold))))
-(setq-default org-export-with-todo-keywords nil)
-(setq-default org-enforce-todo-dependencies t)
+;; Setup org mode
+(after! org
+  (setq org-directory "~/notes/"
+        org-todo-keywords '((sequence "TODO(t)" "WIP(i)" "WAIT(w)" "HOLD(h)" "|" "DONE(d)" "CANCELED(c)"))
+        org-todo-keyword-faces
+        '(("TODO" :foreground "lime" :weight normal :underline t)
+          ("WIP" :foreground "yellow" :weight normal :underline t)
+          ("WAIT" :foreground "#9f7efe" :weight normal :underline t)
+          ("HOLD" :foreground "#9f7efe" :weight normal :underline t)
+          ("DONE" :foreground "#50a14f" :weight normal :underline t)
+          ("CANCELED" :foreground "#ff6480" :weight normal :underline t))
+        org-agenda-files (list "~/notes/agenda.org")))
 
 ;; Setup zsh
 (setq shell-file-name "zsh")
